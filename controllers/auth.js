@@ -10,6 +10,7 @@ const createError = require('../utils/createError')
    // const salt = bcrypt.genSaltSync(10);
    // const hash = bcrypt.hashSync(req.body.password, salt);
 
+   res.setHeader("Access-Control-Allow-Origin", "*")
     const newUser = new User({
       ...req.body,
     });
@@ -23,6 +24,8 @@ const createError = require('../utils/createError')
  const login = async (req, res, next) => {
   try {
     
+    res.setHeader("Access-Control-Allow-Origin", "*")
+
     let data = req.body;
     let {email,password} = data;
 
